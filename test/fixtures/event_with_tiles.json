@@ -1,0 +1,16 @@
+{
+  "Records": [
+    {
+      "Sns": {
+        "Message": {
+          "id": "random-bucket-id",
+          "query": {
+            "tiles": [
+
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

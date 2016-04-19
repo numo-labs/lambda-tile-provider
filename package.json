@@ -1,0 +1,51 @@
+{
+  "name": "lambda-tile-provider",
+  "version": "1.0.0",
+  "description": "Provides tiles based on incoming tile ids",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "node ./node_modules/dpl/dpl.js",
+    "nocov": "node ./node_modules/.bin/mocha test/**",
+    "test": "semistandard && npm run coverage",
+    "coverage": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha --report lcov -- -R spec",
+    "lint": "semistandard"
+  },
+  "files_to_deploy": [
+    "lib/",
+    "schema",
+    "index.js",
+    "package.json",
+    "config.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/numo-labs/lambda-tile-provider.git"
+  },
+  "author": "Jimmy Ruts <jimmyruts@outlook.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/numo-labs/lambda-tile-provider/issues"
+  },
+  "homepage": "https://github.com/numo-labs/lambda-tile-provider#readme",
+  "devDependencies": {
+    "aws-lambda-helper": "^2.5.0",
+    "aws-sdk": "^2.3.3",
+    "dpl": "^2.1.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5",
+    "semistandard": "^7.0.5",
+    "simple-mock": "^0.7.0"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.3",
+    "tv4": "^1.2.7"
+  },
+  "semistandard": {
+    "globals": [
+      "describe",
+      "it",
+      "afterEach"
+    ]
+  }
+}
