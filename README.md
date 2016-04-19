@@ -18,3 +18,6 @@ The format of a record looks like this:
 
 ## invoke.js
 An invoke script has been added to execute/test this lambda locally.
+
+## Schema
+A json schema has been added (and tested) to validate the incoming tiles in the event. **This has not yet been activated** but it is available if we want to use it.
