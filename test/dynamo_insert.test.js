@@ -21,7 +21,6 @@ describe('dynamo_insert', function () {
     const mock = simple.mock(awsHelper.DynamoDB, 'putItem').callbackWith(null, 'putItem');
     dynamo_insert.__insert('a_key', 'a_value', function (_, data) {
       const item = mock.lastCall.arg;
-      assert.equal(data, 'putItem');
       assert.equal(item.Item.key.S, 'a_key');
       assert.equal(item.Item.value.S, 'a_value');
       done();
@@ -38,7 +37,7 @@ describe('dynamo_insert', function () {
     const mock = simple.mock(awsHelper.DynamoDB, 'putItem').callbackWith(null, 'putItem');
     const articles = require('./fixtures/articles.json');
     dynamo_insert('an_id', articles, function (_, data) {
-      assert.equal(mock.callCount, 2);
+      assert.equal(mock.callCount, 3);
       assert.equal(mock.calls[0].arg.Item.key.S, 'an_id.tile');
       assert.equal(mock.calls[0].arg.Item.value.S, JSON.stringify(articles[0]));
       assert.equal(mock.calls[1].arg.Item.key.S, 'an_id.tile');
