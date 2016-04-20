@@ -7,6 +7,28 @@ A lambda function that listens to an SNS topic, checks the requested tile ids an
 ## _Current_ Content
 Currently the content will be passed through in the event until we figure out a **better solution to store the actual content**. Currently we are storing the content inside the tags in our tagging system.
 
+## Event
+The incoming event is the same as the schema from [lambda-search-request-handler](https://github.com/numo-labs/lambda-search-request-handler/tree/master/schema).
+
+We Will have the tiles available in the content object.
+The tile object will have following format:
+
+```js
+{
+  ...
+  "content": {
+    "tiles": [
+      {
+        "id": "tile:article.12456",
+        "type": "article",
+        "content": { --depends on the tile-- }
+      }
+    ]
+  }
+  ...
+}
+```
+
 ## Dynamodb
 The incoming tiles get mapped to a preferred object and get inserted into _**dynamodb**_.
 
@@ -18,6 +40,3 @@ The format of a record looks like this:
 
 ## invoke.js
 An invoke script has been added to execute/test this lambda locally.
-
-## Schema
-A json schema has been added (and tested) to validate the incoming tiles in the event. **This has not yet been activated** but it is available if we want to use it.

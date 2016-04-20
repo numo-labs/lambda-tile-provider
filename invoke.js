@@ -1,6 +1,8 @@
 const assert = require('assert');
 const index = require('./index');
 const articles = require('./test/fixtures/articles.json');
+const article_1 = articles[0];
+const article_2 = articles[1];
 
 const event = {
   Records: [
@@ -8,8 +10,19 @@ const event = {
       Sns: {
         Message: {
           id: 'random-bucket-id',
-          query: {
-            tiles: articles
+          content: {
+            tiles: [
+              {
+                id: article_1.id,
+                type: 'article',
+                content: article_1
+              },
+              {
+                id: article_2.id,
+                type: 'article',
+                content: article_2
+              }
+            ]
           }
         }
       }
