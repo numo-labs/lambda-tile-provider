@@ -13,7 +13,6 @@
   },
   "files_to_deploy": [
     "lib/",
-    "schema",
     "index.js",
     "package.json",
     "config.json"
