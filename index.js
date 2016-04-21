@@ -5,7 +5,7 @@ exports.handler = function (event, context) {
   console.log('Received event:', JSON.stringify(event, null, 2)); // debug SNS
   const message = event.Records[0].Sns.Message;
   const bucket_id = message.id;
-  const tiles = message.content.tiles;
+  const tiles = message.data.content.tiles;
   if (tiles) {
     awsHelper.init(context);
     dynamo_insert(bucket_id, tiles, function (err, data) {
