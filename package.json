@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/numo-labs/lambda-tile-provider#readme",
   "devDependencies": {
-    "aws-lambda-helper": "^2.5.0",
     "aws-sdk": "^2.3.3",
     "dpl": "^2.1.0",
     "istanbul": "^0.4.3",
@@ -38,6 +37,7 @@
     "simple-mock": "^0.7.0"
   },
   "dependencies": {
+    "aws-lambda-helper": "^2.5.0",
     "async": "^2.0.0-rc.3",
     "tv4": "^1.2.7"
   },
