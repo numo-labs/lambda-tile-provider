@@ -3,7 +3,7 @@ const dynamo_insert = require('./lib/dynamo_insert');
 
 exports.handler = function (event, context) {
   console.log('Received event:', JSON.stringify(event, null, 2)); // debug SNS
-  const message = event.Records[0].Sns.Message;
+  const message = JSON.parse(event.Records[0].Sns.Message);
   const bucket_id = message.id;
   const tiles = message.data.content.tiles;
   if (tiles) {
