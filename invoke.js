@@ -10,19 +10,21 @@ const event = {
       Sns: {
         Message: {
           id: 'random-bucket-id',
-          content: {
-            tiles: [
-              {
-                id: article_1.id,
-                type: 'article',
-                content: article_1
-              },
-              {
-                id: article_2.id,
-                type: 'article',
-                content: article_2
-              }
-            ]
+          data: {
+            content: {
+              tiles: [
+                {
+                  id: article_1.id,
+                  type: 'article',
+                  content: article_1
+                },
+                {
+                  id: article_2.id,
+                  type: 'article',
+                  content: article_2
+                }
+              ]
+            }
           }
         }
       }
