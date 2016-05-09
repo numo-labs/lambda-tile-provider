@@ -15,7 +15,7 @@
     "lib/",
     "index.js",
     "package.json",
-    "config.json"
+    ".env"
   ],
   "repository": {
     "type": "git",
@@ -29,15 +29,17 @@
   "homepage": "https://github.com/numo-labs/lambda-tile-provider#readme",
   "devDependencies": {
     "aws-sdk": "^2.3.3",
-    "dpl": "^2.1.0",
+    "dpl": "^3.0.1",
+    "env2": "^2.0.7",
     "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
     "semistandard": "^7.0.5",
     "simple-mock": "^0.7.0"
   },
   "dependencies": {
-    "aws-lambda-helper": "^2.5.0",
     "async": "^2.0.0-rc.3",
+    "aws-lambda-helper": "^2.7.0",
+    "taggable-searcher": "^3.5.2",
     "tv4": "^1.2.7"
   },
   "semistandard": {

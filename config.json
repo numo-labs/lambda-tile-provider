@@ -1,5 +1,0 @@
-{
-  "dynamodb": {
-    "table": "numo-insp-searchBuckets"
-  }
-}
