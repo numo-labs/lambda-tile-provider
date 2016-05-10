@@ -20,12 +20,13 @@ const event = {
   ]
 };
 const context = {
-  invokedFunctionArn: 'arn:aws:lambda:eu-west-1:847002989232:function:lambda-tile-provider-v1',
-  fail: function (data) {
-    console.error(data);
-  },
-  succeed: function (data) {
-    assert.equal(data, 'Inserted 3 tiles');
-  }
+  invokedFunctionArn: 'arn:aws:lambda:eu-west-1:847002989232:function:lambda-tile-provider-v1'
 };
-index.handler(event, context);
+
+index.handler(event, context, function (err, data) {
+  if (err) console.log(err);
+  else {
+
+  }
+  assert.equal(data, 'Inserted 3 tiles');
+});
