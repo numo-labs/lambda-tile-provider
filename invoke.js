@@ -26,7 +26,6 @@ const context = {
 index.handler(event, context, function (err, data) {
   if (err) console.log(err);
   else {
-
+    assert.equal(data, 'Inserted 3 tiles');
   }
-  assert.equal(data, 'Inserted 3 tiles');
 });
