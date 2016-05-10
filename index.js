@@ -11,7 +11,7 @@ exports.handler = function (event, context, callback) {
   if (tiles && tiles.length > 0) {
     content_handler.get(tiles, function (err, data) {
       if (err) return callback(err);
-      dynamo_insert(bucket_id, tiles, function (err, data) {
+      dynamo_insert(bucket_id, data, function (err, data) {
         if (err) return callback(err);
         return callback(null, 'Inserted ' + tiles.length + ' tiles');
       });
