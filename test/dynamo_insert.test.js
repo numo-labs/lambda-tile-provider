@@ -4,6 +4,12 @@ const awsHelper = require('aws-lambda-helper');
 const dynamo_insert = require('../lib/dynamo_insert');
 
 describe('dynamo_insert', function () {
+  const context = {
+    invokedFunctionArn: 'arn:aws:lambda:eu-west-1:847002989232:function:lambda-tile-provider-v1'
+  };
+  awsHelper.init(context);
+  awsHelper.Logger('lambda-tile-provider');
+
   afterEach(function (done) {
     simple.restore();
     done();
