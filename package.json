@@ -33,7 +33,7 @@
     "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
     "semistandard": "^8.0.0",
-    "simple-mock": "^0.7.0"
+    "sinon": "^1.17.4"
   },
   "dependencies": {
     "async": "^2.0.0-rc.3",
