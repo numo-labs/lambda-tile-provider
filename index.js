@@ -1,20 +1,30 @@
+require('env2')('.env');
+const parallel = require('async').parallel;
 const awsHelper = require('aws-lambda-helper');
-const content_handler = require('./lib/content_handler');
-const dynamo_insert = require('./lib/dynamo_insert');
+const contentHandler = require('./lib/contentHandler');
+const saveHandler = require('./lib/saveHandler');
+const dynamoHandler = require('./lib/dynamoHandler');
 
 exports.handler = function (event, context, callback) {
   awsHelper.init(context, event);
-  awsHelper.Logger('lambda-tile-provider');
   awsHelper.log.info({ event: event }, 'Incoming event');
+
   const message = JSON.parse(event.Records[0].Sns.Message);
-  const bucket_id = message.id;
   const tiles = message.data.content.tiles;
-  if (tiles && tiles.length > 0) {
-    content_handler.get(tiles, function (err, data) {
+  if (tiles && tiles.length) {
+    contentHandler.get(tiles, (err, data) => {
       if (err) return callback(err);
-      dynamo_insert(bucket_id, data, function (err, data) {
+      /**
+       * FIXME: For now we will store into dynamodb and push the data to S3 and
+       * the websocket server. If S3 + websockets are fully implemented we can
+       * remove the dynamodbHandler from this code.
+       */
+      parallel([
+        (next) => saveHandler.save(message.id, tiles, next),
+        (next) => dynamoHandler.insertAll(message.id, tiles, next)
+      ], (err) => {
         if (err) return callback(err);
-        return callback(null, 'Inserted ' + tiles.length + ' tiles');
+        return callback(null, `Process ${tiles.length} tiles`);
       });
     });
   } else {
