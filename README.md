@@ -1,5 +1,8 @@
 # Lambda Tile Provider
  [ ![Codeship Status for numo-labs/lambda-tile-provider](https://codeship.com/projects/a7474ec0-e85f-0133-675c-46bb3aa6b241/status?branch=master)](https://codeship.com/projects/147193)
+ [![codecov](https://codecov.io/gh/numo-labs/lambda-tile-provider/branch/master/graph/badge.svg)](https://codecov.io/gh/numo-labs/lambda-tile-provider)
+ [![Dependency Status](https://david-dm.org/numo-labs/lambda-tile-provider.svg)](https://david-dm.org/numo-labs/lambda-tile-provider)
+ [![devDependency Status](https://david-dm.org/numo-labs/lambda-tile-provider/dev-status.svg)](https://david-dm.org/numo-labs/lambda-tile-provider#info=devDependencies)
 
 ## What?
 A lambda function that listens to an SNS topic, checks the requested tile ids and adds the matching content to a corresponding (DynamoDB) search bucket.
@@ -16,9 +19,6 @@ The results (tiles and their content) are currently handled in 2 ways:
 
 The storage is dynamodb will be replace by the second option completely once we get
 everything implemented and tested.
-
-## What?
-In order to get data
 
 ## Event
 The incoming event is the same as the schema from [lambda-search-request-handler](https://github.com/numo-labs/lambda-search-request-handler/tree/master/schema).
@@ -42,6 +42,3 @@ The format of a record looks like this:
 | Key | sortKey | value |
 | --- | ------- | ----- |
 | bucket_id.tile | Unique tile key for this bucket | The tile content |
-
-## invoke.js
-An invoke script has been added to execute/test this lambda locally.

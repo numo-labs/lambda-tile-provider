@@ -9,7 +9,17 @@ awsLambdaHelper.init({
   invokedFunctionArn: 'in:a:galaxy:far:far:away:starwarsbaby'
 });
 
+var sandbox;
+
 describe('contentHandler', () => {
+  beforeEach(done => {
+    sandbox = sinon.sandbox.create();
+    done();
+  });
+  afterEach(done => {
+    sandbox.restore();
+    done();
+  });
   it('get: should return the content for the given ids', done => {
     const tileIds = ['tile:article.dk.10', 'tile:article.dk.100'];
     handler.get(tileIds, (err, results) => {
@@ -25,7 +35,7 @@ describe('contentHandler', () => {
   });
   it('get: should log an error wen an article was not found but still return the found id content', done => {
     // I spy, I spy with my little eye...
-    const spy = sinon.spy(awsLambdaHelper.log, 'error');
+    const spy = sandbox.spy(awsLambdaHelper.log, 'error');
     const tileIds = ['tile:article.dk.10', 'tile:article.dk.doesnotexist'];
     handler.get(tileIds, (err, results) => {
       if (err) return console.error(err);

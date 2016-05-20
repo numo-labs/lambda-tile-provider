@@ -8,13 +8,19 @@ awsLambdaHelper.init({
   invokedFunctionArn: 'arn:aws:lambda:eu-west-1:847002989232:function:lambda-tile-provider-v1'
 });
 
+var sandbox;
+
 describe('dynamoHandler', () => {
+  beforeEach(done => {
+    sandbox = sinon.sandbox.create();
+    done();
+  });
   afterEach(done => {
-    sinon.restore();
+    sandbox.restore();
     done();
   });
   it('insertAll: should insert all given items into dynamodb', done => {
-    const spy = sinon.spy(awsLambdaHelper.DynamoDB, 'putItem');
+    const spy = sandbox.spy(awsLambdaHelper.DynamoDB, 'putItem');
     const articles = require('./fixtures/articles.json');
 
     // Initialise the id generator.
@@ -61,17 +67,42 @@ describe('dynamoHandler', () => {
       done();
     });
   });
-  it.skip('should throw an error when an insert failed, but should continue to insert the rest', done => {
-    // const spy = sinon.spy(awsLambdaHelper.DynamoDB, 'putItem');
-    const corruptArticles = require('./fixtures/articles.json');
+  it('should throw an error when an insert failed, but should continue to insert the rest', done => {
+    const articles = require('./fixtures/articles.json');
+    const spy = sandbox.spy(awsLambdaHelper.log, 'error');
+    const item = {
+      Item: {
+        key: {S: 'injected_by_tests.tile'},
+        sortKey: {S: '2'},
+        value: {S: JSON.stringify(articles[1])}
+      }
+    };
 
-    // Initialise the id generator.
+    const index = {
+      Item: {
+        key: {S: 'injected_by_tests.tiles'},
+        sortKey: {S: '3'},
+        value: {S: '1,2'}
+      }
+    };
+
     handler.initialiseIdGenerator(1);
 
-    handler.insertAll('injected_by_tests', corruptArticles, (err, results) => {
+    // Only callback with an error for the first article.
+    sandbox.stub(awsLambdaHelper.DynamoDB, 'putItem')
+      .onFirstCall().yields('ERROR ERROR')
+      .onSecondCall().yields(null, item)
+      .onThirdCall().yields(null, index);
+
+    handler.insertAll('injected_by_tests', articles, (err, results) => {
       if (err) return console.log(err);
 
-      console.log(results);
+      // Verify that the logger was called with the correct error message.
+      assert(spy.calledOnce);
+      assert.equal(spy.firstCall.args[1], 'Failed to store item');
+
+      // Verify we get a result even if one of the 2 articles failed
+      assert.equal(results, 2);
 
       done();
     });
