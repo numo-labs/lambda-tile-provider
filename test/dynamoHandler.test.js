@@ -19,6 +19,20 @@ describe('dynamoHandler', () => {
     sandbox.restore();
     done();
   });
+  it('should generate a unique id for each item', done => {
+    const spy = sandbox.spy(awsLambdaHelper.DynamoDB, 'putItem');
+    const articles = require('./fixtures/articles.json');
+
+    handler.insertAll('injected_by_tests', articles, function (err, data) {
+      if (err) return done(err);
+      assert(spy.calledThrice);
+
+      const firstSortKey = spy.firstCall.args[0].Item.sortKey.S;
+      const secondSortKey = spy.secondCall.args[0].Item.sortKey.S;
+      assert.equal(secondSortKey, (Number.parseInt(firstSortKey) + 1));
+      done();
+    });
+  });
   it('insertAll: should insert all given items into dynamodb', done => {
     const spy = sandbox.spy(awsLambdaHelper.DynamoDB, 'putItem');
     const articles = require('./fixtures/articles.json');
@@ -95,7 +109,7 @@ describe('dynamoHandler', () => {
       .onThirdCall().yields(null, index);
 
     handler.insertAll('injected_by_tests', articles, (err, results) => {
-      if (err) return console.log(err);
+      if (err) return done(err);
 
       // Verify that the logger was called with the correct error message.
       assert(spy.calledOnce);

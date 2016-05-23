@@ -13,19 +13,19 @@ exports.handler = function (event, context, callback) {
   const tiles = message.data.content.tiles;
   if (tiles && tiles.length) {
     // Fetch the content for the tile ids.
-    contentHandler.get(tiles, (err, data) => {
-      if (err) return callback(err);
+    contentHandler.get(tiles, (_, data) => {
+      // Note that contentHandler will never throw an error.
       /**
        * FIXME: For now we will store into dynamodb and push the data to S3 and
        * the websocket server. If S3 + websockets are fully implemented we can
        * remove the dynamodbHandler from this code.
        */
       parallel([
-        (next) => saveHandler.save(message.id, data, next),
+        (next) => saveHandler.save(message.data.context.connectionId, message.id, message.data.context.userId, data, next),
         (next) => dynamoHandler.insertAll(message.id, data, next)
       ], (err) => {
         if (err) return callback(err);
-        return callback(null, `Process ${data.length} tiles`);
+        return callback(null, `Processed ${data.length} tiles`);
       });
     });
   } else {
