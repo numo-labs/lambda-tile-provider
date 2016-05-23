@@ -1,112 +1,76 @@
 [
   {
-    "id": "tile:article.B1NlFGC",
-    "name": "Oplev Caféer och Barer i New York",
-    "sections": [
+    "_id": "tile:article.dk.10",
+    "location": {
+      "lat": 0,
+      "lon": 0
+    },
+    "displayName": "12 dages luksus pÃ¥ Santorini",
+    "tags": [],
+    "metadata": [],
+    "content": [
       {
-        "image": "http://images2.spies.dk/images/SiteID11/SitePage/top_guider_NEWYORK.jpg?v=1",
-        "text": "New York er mere end blot en by. New York er en tilstand. En følelse af at alt er muligt, og intet er forkert. Her kan du rejse en tur jorden rundt på blot nogle stop med undergrundstoget. Ingen bydele er ens, og hver især har sin egen, unikke personlighed og udtryk. Byen har noget for alle, uanset om du foretrækker små, mørke barer eller urban skyskraberluksus. Den er som et æble, som giver appetit på mere.",
-        "title": "Oplev Caféer och Barer i New York"
-      },
-      {
-        "image": "",
-        "text": "21 W 39th Street (Fifth Avenue)\nEn perle for dig, der synes om ægte kinamad med smag. Stedet er ikke direkte hyggeligt, men det er de rigtig gode kinesiske spisesteder sjældent. Populært sted, også blandt kinesere. Gå ikke glip af deres ”pork dumplings” i ristet chiliolie.\n",
-        "title": "Szechuan Gourmet (Kinesisk)"
-      },
-      {
-        "image": "http://images2.spies.dk/images/SiteID11/SitePage/guide_billeder_nyc3.png?v=1",
-        "text": "1538 Second Avenue (E 80th Street); 2799 Broadway (W 108th Street)\nFunky og sjovt lille mexicansk spisested, som serverer kanongode og ægte tacos. Virkelig lækker guacamole og en hel del sjove drinks. Der findes to af dem, en på den østlige side og en på den vestlige side.",
-        "title": "Cascabel Taqueria (Mexikansk)"
-      },
-      {
-        "image": "",
-        "text": "700 W 125th Street (Twelfth Avenue)\nFolkeligt, festligt og fyldt. Der er mange, der valfarter hertil for at få sig en omgang grillet sydstatsmad. Her serveres alt fra spare ribs til pulled pork og barbecuekylling. Billigt og virkelig store portioner. Desuden sej, urban beliggenhed helt oppe på den vestlige side af Harlem.",
-        "title": "Dinosaur Bar-B-Que (Kød)"
-      },
-      {
-        "image": "",
-        "text": "50 Commerce Street\nSmuk art deco-bar i det pittoreske West Village med martinier så store, at man kan svømme rygsvømning i dem! Man kan også spise i baren. Obs! Tager ikke imod kontanter. Husk også at kigge efter det kendte hjørnehus fra tv-serien ”Venner” nogle kvarterer borte på hjørnet af Bedford og Grove Street.",
-        "title": "Commerce"
-      },
-      {
-        "image": "",
-        "text": "310 Lenox Avenue (W 125th Street)\nMarcus Samuelssons flagskib i Harlem lokker masser af skandinaver, specielt svenskere, til. Dette er en cool bar med livemusik i det ene hjørne flere dage om ugen og en god blanding af lokale stamgæster og danseglade engangsbesøgende. Ginny’s Supper Club i kælderen er også værd at tjekke ud. Her kan man ofte opleve rigtig gode jazzartister.",
-        "title": "Red Rooster"
-      },
-      {
-        "image": "",
-        "text": "131 Rivington Street (Norfolk Street)\nManhattans bedste happy hour? Pålidelig og sympatisk East Village-institution hvor der serveres såvel drinks som østers til halv pris mandag-torsdag kl. 16-19.30 og fredag kl. 16-18.",
-        "title": "Schiller’s Liqour Bar"
+        "url": "http://www.spies.dk/graekenland/imerovigli/gold-suites?TravelFinderQuery=83350%3ad201608016756%3ad2016080112678%3a0%3a11%3af11%3a83351%3a1_c2_42%3a42%3at2%3a3%3a&QueryDepID=12678&QueryCtryID=6756&QueryResID=83351&QueryDepDate=20160801&QueryRetDate=20160812&QueryChkInDate=20160801&QueryChkOutDate=20160812&QueryRoomAges=%7c42%2c42&QueryUnits=1&QueryAges=42%2c42&QueryType=2&InspirationSearch=true",
+        "market": "dk",
+        "language": "da",
+        "sections": [
+          {
+            "image": "http://images2.spies.dk/images/SiteID11/SitePage/valgfrihed_greece_0601.jpg?v=4",
+            "text": "Skal det vÃ¦re ekstra godt? BÃ¸rnefri luksusferie pÃ¥ romantiske og ikonisk smukke Santorini.",
+            "title": "12 dages luksus pÃ¥ Santorini - fra 25.170,-"
+          }
+        ]
       }
     ],
-    "tags": [
-      {
-        "label": "New York",
-        "value": "geo:geonames.5128581"
-      },
-      {
-        "label": "Bar | Bar",
-        "value": "amenity:bar"
-      }
-    ],
-    "url": "http://www.spies.dk/new-york-guide#cafe"
+    "markets": {},
+    "active": true,
+    "description": ""
   },
   {
-    "id": "tile:article.B1Wig8b6",
-    "name": "SunConnect Resorts – familiehoteller med gratis wi-fi",
-    "sections": [
+    "_id": "tile:article.dk.100",
+    "location": {
+      "lat": 0,
+      "lon": 0
+    },
+    "displayName": "Kap Verde - No Stress",
+    "tags": [],
+    "metadata": [],
+    "content": [
       {
-        "image": "http://images1.spies.dk/images/SiteID11/SitePage/sunconnect_top.jpg?v=1",
-        "text": "SunConnect Resorts er særligt udvalgte hoteller for dig, som vil have en afslappet ferie med familien. Her findes for eksempel altid restaurant, børneklub og pools, som passer til både børn og voksne. Vores aktivitetsværter arrangerer sjove aktiviteter for de mindste børn, og på et par hoteller findes også Lollo & Bernie Kids Club. Større børn og unge kan hygge sig med tv-spil og afslapning i ConnectTeen Lounge.\n\nDe fleste af vores SunConnect Resorts har tidligere været populære Family Garden-hoteller, og nu har vi gjort dem endnu bedre ved at tilføje faciliteter, som vores gæster har efterspurgt: Gratis wi-fi på hele hotellet er bare ét eksempel. På SunConnect Resorts findes også flere interaktive løsninger, når du vil have information, aktiviteter og underholdning. Du kan oplade din smartphone eller tablet ved den ConnectBar, som findes på hotellet, og vil du vide mere om udbuddet, henvender du dig ved vores ConnectWall i receptionen.",
-        "title": "SunConnect Resorts – familiehoteller med gratis wi-fi"
+        "url": "http://www.ving.se/inspiration/afrika/kap-verde-no-stress/",
+        "market": "dk",
+        "language": "da",
+        "sections": [
+          {
+            "image": "http://www.ving.se/inspiration/media/1522/toppbild_kap-verde-1.jpg?anchor=center&mode=crop&width=975&height=350&rnd=130862171750000000",
+            "text": "Har du lang tid at komme til at udforske Ã¦ldgamle kulturskatte under din ferie? DrÃ¸mmer du om at vende hjem med poser fulde af shopping tilbud i klassen? SÃ¥ kan man lige sÃ¥ godt stoppe lÃ¦sningen her. Skriver du i stedet i Kap Verdes mottoet \"ingen stress\", og er villige til at bruge stÃ¸rstedelen af â€‹â€‹orloven i en liggestol, sÃ¥ er det bare at fortsÃ¦tte.",
+            "title": "Kap Verde - No Stress"
+          },
+          {
+            "image": "http://www.ving.se/inspiration/media/1498/kap-verde-strander3.png",
+            "text": "IfÃ¸lge legenden opstod Kap Verde nÃ¥r Gud pÃ¥ den syvende dag, var tilfreds med sin skabelse og klappede hÃ¦nderne sammen, sÃ¥ de krummer fra hans fingre faldt i Atlanterhavet og dannede de 15 eller deromkring Ã¸er, der udgÃ¸r Kap Verde . NÃ¥r jeg sidder i taxa fra Ã¸en Sal lufthavn til hotellet, jeg beslutter i stedet at tro pÃ¥ mere videnskabelig forklaring: at Ã¸erne er blevet forÃ¥rsaget af vulkanudbrud. Det er en virkelig tÃ¸r, nÃ¸gne og Ã¸de landskab, der breder sig ud pÃ¥ begge sider af Sals enkelt drev. Forestil dig en blanding mellem mÃ¥nen, det vilde vesten, og at omrÃ¥det omkring Ayers Rock i Australien (minus den imponerende klippeformation), sÃ¥ du fÃ¥r en temmelig godt billede af trÃ¸steslÃ¸shed. \"Er det se sÃ¥dan ud pÃ¥ Ã¸en?\" Jeg beder spÃ¦ndt taxachauffÃ¸r. \"Ingen stress,\" svarer han leende. \"Vent, indtil du ser strandene i Santa Maria .\"",
+            "title": "Strandene og klimaet er Kap Verdes vigtigt aktiv"
+          },
+          {
+            "image": "http://www.ving.se/inspiration/media/1495/kapvila1005.png",
+            "text": "Jeg tjekker ind pÃ¥ et hotel, ligesom de fleste andre hoteller pÃ¥ Ã¸en er lige pÃ¥ stranden. Derefter tager fra min sko, og lad mine vinter blege fÃ¸dder tage de fÃ¸rste spÃ¦de skridt gennem sandet. SÃ¥ jeg lÃ¸fter dit blik og hurtigt indse to ting. 1) Stranden er bare gylden og dejlig. 2) Stranden har ingen ende. Snart, jeg opdager, at jeg kan glemme alt, hvad jeg ved om strandene jeg har vÃ¦ret til fÃ¸r. Du ved, hvor du fÃ¥r mulighed for at klemme i en liggestol eller hÃ¥ndklÃ¦de pÃ¥ minimal overflade, der opstÃ¥r, nÃ¥r nogle uforsigtig medturist svÃ¸mme. PÃ¥ stranden i Santa Maria, problemet er snarere det modsatte: her fÃ¥r du at se langt, hvis du Ã¸nsker at lykkes i at finde et sted tÃ¦t pÃ¥ en anden.",
+            "title": ""
+          },
+          {
+            "image": "http://www.ving.se/inspiration/media/1499/kap-verde-kitesurfing.png",
+            "text": "Jo lÃ¦ngere jeg er pÃ¥ Ã¸en, jo tydeligere bliver det, at det er strandene, og klimaet er Sal hovedinvestering. Med sine 350 solskinsdage om Ã¥ret er Sal en af de mest sol sikre destinationer tÃ¦nkelige. Vil det overhovedet nogen regn tendens til at vÃ¦re over, fÃ¸r du selv har tid til at sige \"paraply\". Strandene er lidt roligere og mere berÃ¸mt lÃ¦nge pÃ¥ Santa Maria sydside. I Ã¸st og vest blÃ¦ser mere, hvilket gÃ¸r dem til et paradis for vind og kitesurfere fra hele verden. Overalt du ser skÃ¦rme cruising og tilbage hen over himlen som en svÃ¦rm af myg en svensk tidlig sommeraften. Det er klart, en af den seneste verdensmester i kitesurfing fra Sal og sÃ¥ indlysende, tilbyder han kurser pÃ¥ stranden uden Ving Hotel Villa do Farol . Der er han i Ã¸vrigt ikke alene, tage en tur langs stranden, vil du finde flere surf og dykkerskoler end turister.",
+            "title": ""
+          },
+          {
+            "image": "http://www.ving.se/inspiration/media/1500/vscvkapskp1091.png",
+            "text": "Da jeg er alt for fej til at prÃ¸ve det selv, skal jeg begrÃ¦nse mig til at holde op med surfere pÃ¥ Angulo er om eftermiddagen. Her, ligesom i de fleste andre barer og restauranter, er en dejlig afslappet atmosfÃ¦re. Som svensk bliver fÃ¸rst lidt overrasket over, at folk rent faktisk tale med hinanden - over bordgrÃ¦nserne! Ikke kun mellem turister, lokale beboere ogsÃ¥ synes virkelig interesseret i os besÃ¸gende. Den samme fÃ¸lelse, du fÃ¥r om natten, nÃ¥r du sidder pÃ¥ en af â€‹â€‹de barer eller restauranter i centrum. Glad fest, til klÃ¦dt folk der kan lide at hÃ¦nge ud - mere end anmodningen, i det mindste er jeg ikke en aften.\n\nSanta Maria centrum bestÃ¥r af to parallelle gader kÃ¸rer mellem lave stenhuse, mange med fantasifulde malede facader. For at vÃ¦re sÃ¥dan en lille by, Santa Maria har et overraskende stort udvalg af barer og restauranter. Desuden er det bÃ¥de godt og billigt at spise ude. En sikker satsning er at bestille fisk eller skaldyr. Garanteret daglig frisk fra molen, hvor fiskerne hver morgen kommer ind for at sÃ¦lge dagens fangst. En farverig og larmende oplevelse du ikke bÃ¸r gÃ¥ glip af!",
+            "title": "\"Vil det overhovedet nogen regn tendens til at vÃ¦re over, fÃ¸r du selv har tid til at sige 'paraply' '."
+          }
+        ]
       }
     ],
-    "tags": [
-      {
-        "label": "SunConnect Atlantis Fuerteventura Resort",
-        "value": "hotel:mhid.k85e3nk"
-      },
-      {
-        "label": "SunConnect Eftalia Marin",
-        "value": "hotel:mhid.3Lkh80e"
-      },
-      {
-        "label": "SunConnect Evita",
-        "value": "hotel:mhid.rfj9bj1"
-      },
-      {
-        "label": "SunConnect Grand Ideal Premium",
-        "value": "hotel:mhid.vq8q1qy"
-      },
-      {
-        "label": "SunConnect Kolymbia Star",
-        "value": "hotel:mhid.ny0jqgf"
-      },
-      {
-        "label": "SunConnect Mirador del Atlantico, Playa de Amadores",
-        "value": "hotel:NE.wvHotelPartId.8034"
-      },
-      {
-        "label": "SunConnect Sea World Resort & Spa, Side",
-        "value": "hotel:NE.wvHotelPartId.121184"
-      },
-      {
-        "label": "SunConnect Servatur Puerto Azul",
-        "value": "hotel:mhid.uf842kf"
-      },
-      {
-        "label": "SunConnect Side Resort",
-        "value": "hotel:mhid.4wjhgki"
-      },
-      {
-        "label": "Internet | Internet",
-        "value": "amenity:wifi"
-      },
-      {
-        "label": "LolloAndBernie | Lollo och Bernie",
-        "value": "amenity:lolloandbernie"
-      }
-    ],
-    "url": "http://www.spies.dk/sunconnect-resorts "
+    "markets": {},
+    "active": true,
+    "description": ""
   }
 ]
