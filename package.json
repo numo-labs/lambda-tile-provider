@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "deploy": "node ./node_modules/dpl/dpl.js",
-    "nocov": "node ./node_modules/.bin/mocha test/**",
+    "nocov": "node ./node_modules/.bin/mocha test/**.test.js",
     "test": "semistandard && npm run coverage",
     "coverage": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha --report lcov -- -R spec",
     "lint": "semistandard"
@@ -39,7 +39,7 @@
     "async": "^2.0.0-rc.3",
     "aws-lambda-helper": "^2.16.0",
     "env2": "^2.0.7",
-    "taggable-searcher": "^3.5.2",
+    "taggable-searcher": "^4.2.1",
     "tv4": "^1.2.7"
   },
   "semistandard": {
