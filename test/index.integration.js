@@ -44,6 +44,7 @@ describe('Index (integration)', done => {
     };
 
     index.handler(event, context, function (err, data) {
+      console.log('err', err);
       if (err) return done(err);
       assert.equal(data, 'Processed 3 tiles');
       done();
