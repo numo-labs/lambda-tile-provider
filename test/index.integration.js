@@ -21,11 +21,11 @@ describe('Index (integration)', done => {
   });
   it('Should store store and inform me how many were inserted', done => {
     const message = {
-      id: 'injected_by_tests',
       data: {
         context: {
           userId: 'UniqueFingerprint',
-          connectionId: 'WebsocketGeneratedId'
+          connectionId: 'WebsocketGeneratedId',
+          searchId: 'injected_by_tests'
         },
         content: {
           tiles: ['tile:article.dk.65', 'tile:article.dk.100', 'tile:article.dk.13']
