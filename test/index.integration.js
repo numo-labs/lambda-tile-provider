@@ -21,15 +21,13 @@ describe('Index (integration)', done => {
   });
   it('Should store store and inform me how many were inserted', done => {
     const message = {
-      data: {
-        context: {
-          userId: 'UniqueFingerprint',
-          connectionId: 'WebsocketGeneratedId',
-          searchId: 'injected_by_tests'
-        },
-        content: {
-          tiles: ['tile:article.dk.65', 'tile:article.dk.100', 'tile:article.dk.13']
-        }
+      context: {
+        userId: 'UniqueFingerprint',
+        connectionId: 'WebsocketGeneratedId',
+        searchId: 'injected_by_tests'
+      },
+      content: {
+        tiles: ['tile:article.dk.65', 'tile:article.dk.100', 'tile:article.dk.13']
       }
     };
 
@@ -52,15 +50,13 @@ describe('Index (integration)', done => {
   });
   it('Should only have stored 2 items when 1 of the 3 articles has no content', done => {
     const message = {
-      id: 'injected_by_tests',
-      data: {
-        context: {
-          userId: 'UniqueFingerprint',
-          connectionId: 'WebsocketGeneratedId'
-        },
-        content: {
-          tiles: ['tile:article.dk.65', 'tile:article.dk.100', 'tile:article.dk.totallyMadeUp']
-        }
+      context: {
+        userId: 'UniqueFingerprint',
+        connectionId: 'WebsocketGeneratedId',
+        searchId: 'injected_by_tests'
+      },
+      content: {
+        tiles: ['tile:article.dk.65', 'tile:article.dk.100', 'tile:article.dk.totallyMadeUp']
       }
     };
 
@@ -82,11 +78,11 @@ describe('Index (integration)', done => {
   });
   it('Should tell us when there are no filed found', done => {
     const message = {
-      id: 'injected_by_tests',
-      data: {
-        content: {
-          tiles: []
-        }
+      context: {
+        searchId: 'injected_by_tests'
+      },
+      content: {
+        tiles: []
       }
     };
 
@@ -108,15 +104,13 @@ describe('Index (integration)', done => {
   });
   it('should throw an error when the saveHandler throws an error', done => {
     const message = {
-      id: 'injected_by_tests',
-      data: {
-        context: {
-          userId: 'UniqueFingerprint',
-          connectionId: 'WebsocketGeneratedId'
-        },
-        content: {
-          tiles: ['tile:article.dk.65', 'tile:article.dk.100', 'tile:article.dk.totallyMadeUp']
-        }
+      context: {
+        userId: 'UniqueFingerprint',
+        connectionId: 'WebsocketGeneratedId',
+        searchId: 'injected_by_tests'
+      },
+      content: {
+        tiles: ['tile:article.dk.65', 'tile:article.dk.100', 'tile:article.dk.totallyMadeUp']
       }
     };
 
@@ -139,15 +133,13 @@ describe('Index (integration)', done => {
   });
   it('should throw an error when the dynamoHandler throws an error', done => {
     const message = {
-      id: 'injected_by_tests',
-      data: {
-        context: {
-          userId: 'UniqueFingerprint',
-          connectionId: 'WebsocketGeneratedId'
-        },
-        content: {
-          tiles: ['tile:article.dk.65', 'tile:article.dk.100']
-        }
+      context: {
+        userId: 'UniqueFingerprint',
+        connectionId: 'WebsocketGeneratedId',
+        searchId: 'injected_by_tests'
+      },
+      content: {
+        tiles: ['tile:article.dk.65', 'tile:article.dk.100']
       }
     };
 

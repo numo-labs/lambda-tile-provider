@@ -30,7 +30,7 @@ describe('saveHandler', done => {
     sandbox.restore();
     done();
   });
-  it.only('save: should call pushResultToClient from aws-lambda-helper', done => {
+  it('save: should call pushResultToClient from aws-lambda-helper', done => {
     const expectedItems = [{
       id: 'tile:article.dk.1',
       type: 'tile',
