@@ -10,7 +10,7 @@ exports.handler = function (event, context, callback) {
   aws.log.info({ event: event }, 'Incoming event');
 
   const message = JSON.parse(event.Records[0].Sns.Message);
-  const tiles = message.data.content.tiles;
+  const tiles = message.content.tiles;
   if (tiles && tiles.length) {
     // Fetch the content for the tile ids.
     contentHandler.get(tiles, (_, data) => {
@@ -21,8 +21,8 @@ exports.handler = function (event, context, callback) {
        * remove the dynamodbHandler from this code.
        */
       parallel([
-        (next) => saveHandler.save(message.data.context.connectionId, message.id, message.data.context.userId, data, next),
-        (next) => dynamoHandler.insertAll(message.id, data, next)
+        (next) => saveHandler.save(message.context.connectionId, message.context.searchId, message.context.userId, data, next),
+        (next) => dynamoHandler.insertAll(message.context.searchId, data, next)
       ], (err) => {
         if (err) return callback(err);
         return callback(null, `Processed ${data.length} tiles`);

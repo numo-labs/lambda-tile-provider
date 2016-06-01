@@ -34,6 +34,7 @@ describe('saveHandler', done => {
     const expectedItems = [{
       id: 'tile:article.dk.1',
       type: 'tile',
+      url: '456/tile:article.dk.1',
       tile: {
         id: 'tile:article.dk.1',
         type: 'article',
@@ -44,6 +45,7 @@ describe('saveHandler', done => {
     }, {
       id: 'tile:article.dk.2',
       type: 'tile',
+      url: '456/tile:article.dk.2',
       tile: {
         id: 'tile:article.dk.2',
         type: 'article',
