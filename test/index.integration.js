@@ -2,7 +2,6 @@ const assert = require('assert');
 const sinon = require('sinon');
 const index = require('../index');
 const saveHandler = require('../lib/saveHandler');
-const dynamoHandler = require('../lib/dynamoHandler');
 
 const context = {
   invokedFunctionArn: 'arn:aws:lambda:eu-west-1:847002989232:function:lambda-tile-provider-v1'
@@ -42,7 +41,6 @@ describe('Index (integration)', done => {
     };
 
     index.handler(event, context, function (err, data) {
-      console.log('err', err);
       if (err) return done(err);
       assert.equal(data, 'Processed 4 tiles');
       done();
@@ -125,35 +123,6 @@ describe('Index (integration)', done => {
     };
 
     sandbox.stub(saveHandler, 'save').yields('Oooops');
-
-    index.handler(event, context, function (err) {
-      assert.equal(err, 'Oooops');
-      done();
-    });
-  });
-  it('should throw an error when the dynamoHandler throws an error', done => {
-    const message = {
-      context: {
-        userId: 'UniqueFingerprint',
-        connectionId: 'WebsocketGeneratedId',
-        searchId: 'injected_by_tests'
-      },
-      content: {
-        tiles: ['tile:article.dk.65', 'tile:article.dk.100']
-      }
-    };
-
-    const event = {
-      Records: [
-        {
-          Sns: {
-            Message: JSON.stringify(message)
-          }
-        }
-      ]
-    };
-
-    sandbox.stub(dynamoHandler, 'insertAll').yields('Oooops');
 
     index.handler(event, context, function (err) {
       assert.equal(err, 'Oooops');

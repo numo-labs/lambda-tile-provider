@@ -6,7 +6,7 @@ const handler = require('../lib/contentHandler');
 // Initialising for logging.
 const awsLambdaHelper = require('aws-lambda-helper');
 awsLambdaHelper.init({
-  invokedFunctionArn: 'in:a:galaxy:far:far:away:starwarsbaby'
+  invokedFunctionArn: 'arn:aws:lambda:eu-west-1:847002989232:function:lambda-tile-provider-v1'
 });
 
 var sandbox;

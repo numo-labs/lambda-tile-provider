@@ -13,12 +13,7 @@ Afterwards it will fetch the content for those ids from an **S3 bucket**.<br/>
 _If the content is not found an error will be logged but the process will **continue** for
 all the successfully found tiles._
 
-The results (tiles and their content) are currently handled in 2 ways:
-1. Stored in dynamodb. (_see dynamodb section_).
-2. Pushed to a websocket and s3.
-
-The storage is dynamodb will be replace by the second option completely once we get
-everything implemented and tested.
+The results (tiles and their content) are Pushed to a websocket and s3.
 
 ## Event
 The incoming event is the same as the schema from [lambda-search-request-handler](https://github.com/numo-labs/lambda-search-request-handler/tree/master/schema).
@@ -43,21 +38,6 @@ Either export them into your terminal or save them in an `.env` file.
 ```
 AWS_S3_SEARCH_RESULT_BUCKET
 S3_TAGGY_BUCKET
-DYNAMO_DB_TABLE
 SEARCH_RESULT_TOPIC
 AWS_REGION
 ```
-
-To run the integration tests type the following command in your terminal:
-
-`npm run test:integration`
-
-
-## Dynamodb
-The incoming tiles get mapped to a preferred object and get inserted into _**dynamodb**_.
-
-The format of a record looks like this:
-
-| Key | sortKey | value |
-| --- | ------- | ----- |
-| bucket_id.tile | Unique tile key for this bucket | The tile content |
