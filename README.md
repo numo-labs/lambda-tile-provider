@@ -50,7 +50,7 @@ AWS_REGION
 
 To run the integration tests type the following command in your terminal:
 
-`node ./node_modules/.bin/mocha test/index.integration.js`
+`npm run test:integration`
 
 
 ## Dynamodb

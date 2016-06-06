@@ -9,7 +9,8 @@
     "nocov": "node ./node_modules/.bin/mocha test/**.test.js",
     "test": "semistandard && npm run coverage",
     "coverage": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha --report lcov -- -R spec",
-    "lint": "semistandard"
+    "lint": "semistandard",
+    "test:integration": "node ./node_modules/.bin/mocha test/index.integration.js"
   },
   "files_to_deploy": [
     "lib/",
