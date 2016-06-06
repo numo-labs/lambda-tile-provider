@@ -46,6 +46,10 @@ SEARCH_RESULT_TOPIC
 AWS_REGION
 ```
 
+To run the integration tests type the following command in your terminal:
+
+`node ./node_modules/.bin/mocha test/index.integration.js`
+
 
 ## Dynamodb
 The incoming tiles get mapped to a preferred object and get inserted into _**dynamodb**_.
