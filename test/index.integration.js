@@ -27,7 +27,7 @@ describe('Index (integration)', done => {
         searchId: 'injected_by_tests'
       },
       content: {
-        tiles: ['tile:article.dk.65', 'tile:article.dk.100', 'tile:article.dk.13']
+        tiles: ['tile:article.dk.65', 'tile:article.dk.100', 'tile:article.dk.13', 'tile:destination.dk.108027']
       }
     };
 
@@ -44,7 +44,7 @@ describe('Index (integration)', done => {
     index.handler(event, context, function (err, data) {
       console.log('err', err);
       if (err) return done(err);
-      assert.equal(data, 'Processed 3 tiles');
+      assert.equal(data, 'Processed 4 tiles');
       done();
     });
   });

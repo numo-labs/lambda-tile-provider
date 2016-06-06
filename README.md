@@ -34,6 +34,25 @@ The tile object will have following format:
 }
 ```
 
+## Environment variables needed to run the integration tests locally
+
+Look at the codeship settings to get the values for these variables. https://codeship.com/projects/147193/configure_environment
+
+Either export them into your terminal or save them in an `.env` file.
+
+```
+AWS_S3_SEARCH_RESULT_BUCKET
+S3_TAGGY_BUCKET
+DYNAMO_DB_TABLE
+SEARCH_RESULT_TOPIC
+AWS_REGION
+```
+
+To run the integration tests type the following command in your terminal:
+
+`npm run test:integration`
+
+
 ## Dynamodb
 The incoming tiles get mapped to a preferred object and get inserted into _**dynamodb**_.
 
