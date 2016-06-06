@@ -19,7 +19,7 @@ describe('Index (integration)', done => {
     sandbox.restore();
     done();
   });
-  it.only('Should store store and inform me how many were inserted', done => {
+  it('Should store store and inform me how many were inserted', done => {
     const message = {
       context: {
         userId: 'UniqueFingerprint',
