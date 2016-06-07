@@ -4,7 +4,7 @@ const awsLambdaHelper = require('aws-lambda-helper');
 const sinon = require('sinon');
 const handler = require('../lib/saveHandler');
 
-const articles = [
+const tiles = [
   {
     id: 'tile:article.dk.1',
     name: 'A random article',
@@ -12,8 +12,8 @@ const articles = [
     sections: []
   },
   {
-    id: 'tile:article.dk.2',
-    name: 'A random article',
+    id: 'tile:destination.dk.2',
+    name: 'A random destination',
     url: 'http://www.thomascook.com',
     sections: []
   }
@@ -30,8 +30,8 @@ describe('saveHandler', done => {
     sandbox.restore();
     done();
   });
-  it('save: should call pushResultToClient from aws-lambda-helper', done => {
-    const expectedItems = [{
+  it('save: should call saveRecordToS3  & pushToSNSTopic from aws-lambda-helper', done => {
+    const expectedS3FormatItems = [{
       id: 'tile:article.dk.1',
       type: 'tile',
       url: '456/tile:article.dk.1',
@@ -43,30 +43,63 @@ describe('saveHandler', done => {
         url: 'http://www.thomascook.com'
       }
     }, {
-      id: 'tile:article.dk.2',
+      id: 'tile:destination.dk.2',
       type: 'tile',
-      url: '456/tile:article.dk.2',
+      url: '456/tile:destination.dk.2',
       tile: {
-        id: 'tile:article.dk.2',
-        type: 'article',
-        name: 'A random article',
+        id: 'tile:destination.dk.2',
+        type: 'destination',
+        name: 'A random destination',
         sections: [],
         url: 'http://www.thomascook.com'
       }
     }];
 
-    const spy = sandbox.spy(awsLambdaHelper, 'pushResultToClient');
+    const expectedSnsFormatItems = [{
+      id: 'tile:article.dk.1',
+      type: 'tile',
+      url: '456/tile:article.dk.1',
+      tile: {
+        id: 'tile:article.dk.1',
+        type: 'article',
+        name: 'A random article',
+        sections: []
+      }
+    }, {
+      id: 'tile:destination.dk.2',
+      type: 'tile',
+      url: '456/tile:destination.dk.2',
+      tile: {
+        id: 'tile:destination.dk.2',
+        type: 'destination',
+        name: 'A random destination',
+        sections: [],
+        url: 'http://www.thomascook.com'
+      }
+    }];
 
-    handler.save('123', '456', '789', articles, function (err, result) {
+    const saveRecordToS3Spy = sandbox.spy(awsLambdaHelper, 'saveRecordToS3');
+    const pushToSNSTopicSpy = sandbox.spy(awsLambdaHelper, 'pushToSNSTopic');
+
+    handler.save('123', '456', '789', tiles, function (err, result) {
       if (err) return console.error(err);
-      assert(spy.calledOnce);
-      assert.deepEqual(spy.firstCall.args[0].items, expectedItems);
+      assert(saveRecordToS3Spy.calledOnce);
+      assert.deepEqual(saveRecordToS3Spy.firstCall.args[0].items, expectedS3FormatItems);
+      assert(pushToSNSTopicSpy.calledOnce);
+      assert.deepEqual(pushToSNSTopicSpy.firstCall.args[0].items, expectedSnsFormatItems);
       done();
     });
   });
-  it('save: should throw an error when pushResultToClient throw an error', done => {
-    sandbox.stub(awsLambdaHelper, 'pushResultToClient').yields('Oops, something went wrong');
-    handler.save('123', '456', '789', articles, function (err) {
+  it('save: should throw an error when saveRecordToS3 throw an error', done => {
+    sandbox.stub(awsLambdaHelper, 'saveRecordToS3').yields('Oops, something went wrong');
+    handler.save('123', '456', '789', tiles, function (err) {
+      assert.equal(err, 'Oops, something went wrong');
+      done();
+    });
+  });
+  it('save: should throw an error when pushToSNSTopic throw an error', done => {
+    sandbox.stub(awsLambdaHelper, 'pushToSNSTopic').yields('Oops, something went wrong');
+    handler.save('123', '456', '789', tiles, function (err) {
       assert.equal(err, 'Oops, something went wrong');
       done();
     });
