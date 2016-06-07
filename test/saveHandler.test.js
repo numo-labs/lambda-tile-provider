@@ -1,5 +1,5 @@
 require('env2')('.env');
-const assert = require('assert');
+const expect = require('chai').expect;
 const awsLambdaHelper = require('aws-lambda-helper');
 const sinon = require('sinon');
 const handler = require('../lib/saveHandler');
@@ -83,24 +83,24 @@ describe('saveHandler', done => {
 
     handler.save('123', '456', '789', tiles, function (err, result) {
       if (err) return console.error(err);
-      assert(saveRecordToS3Spy.calledOnce);
-      assert.deepEqual(saveRecordToS3Spy.firstCall.args[0].items, expectedS3FormatItems);
-      assert(pushToSNSTopicSpy.calledOnce);
-      assert.deepEqual(pushToSNSTopicSpy.firstCall.args[0].items, expectedSnsFormatItems);
+      expect(saveRecordToS3Spy.calledOnce).to.be.true;
+      expect(saveRecordToS3Spy.firstCall.args[0].items).to.deep.equal(expectedS3FormatItems);
+      expect(pushToSNSTopicSpy.calledOnce).to.be.true;
+      expect(pushToSNSTopicSpy.firstCall.args[0].items).to.deep.equal(expectedSnsFormatItems);
       done();
     });
   });
   it('save: should throw an error when saveRecordToS3 throw an error', done => {
     sandbox.stub(awsLambdaHelper, 'saveRecordToS3').yields('Oops, something went wrong');
     handler.save('123', '456', '789', tiles, function (err) {
-      assert.equal(err, 'Oops, something went wrong');
+      expect(err).to.equal('Oops, something went wrong');
       done();
     });
   });
   it('save: should throw an error when pushToSNSTopic throw an error', done => {
     sandbox.stub(awsLambdaHelper, 'pushToSNSTopic').yields('Oops, something went wrong');
     handler.save('123', '456', '789', tiles, function (err) {
-      assert.equal(err, 'Oops, something went wrong');
+      expect(err).to.equal('Oops, something went wrong');
       done();
     });
   });

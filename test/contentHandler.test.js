@@ -1,5 +1,5 @@
 require('env2')('.env');
-const assert = require('assert');
+const expect = require('chai').expect;
 const sinon = require('sinon');
 const handler = require('../lib/contentHandler');
 
@@ -26,10 +26,14 @@ describe('contentHandler', () => {
       if (err) return console.error(err);
       const tile1 = results[0];
       const tile2 = results[1];
-      assert.equal(tile1.id, tileIds[0]);
-      assert.equal(tile2.id, tileIds[1]);
-      assert(tile1.id && tile1.name && tile1.url && tile1.sections);
-      assert(tile2.id && tile2.name && tile2.url && tile2.sections);
+      expect(tile1.id).to.equal(tileIds[0]);
+      expect(tile2.id).to.equal(tileIds[1]);
+      expect(tile1.name).to.exist;
+      expect(tile1.url).to.exist;
+      expect(tile1.sections).exist;
+      expect(tile2.name).to.exist;
+      expect(tile2.url).to.exist;
+      expect(tile2.sections).exist;
       done();
     });
   });
@@ -40,14 +44,16 @@ describe('contentHandler', () => {
     handler.get(tileIds, (err, results) => {
       if (err) return console.error(err);
       // Verify that the found content came back.
-      assert.equal(results.length, 1);
+      expect(results.length).to.equal(1);
       const tile = results[0];
-      assert.equal(tile.id, tileIds[0]);
-      assert(tile.id && tile.name && tile.url && tile.sections);
+      expect(tile.id).to.equal(tileIds[0]);
+      expect(tile.name).to.exist;
+      expect(tile.url).to.exist;
+      expect(tile.sections).exist;
 
       // Verify that the logger was called with the correct error message.
-      assert(spy.calledOnce);
-      assert.equal(spy.firstCall.args[1], 'no content found for tile:article.dk.doesnotexist in s3');
+      expect(spy.calledOnce).to.be.true;
+      expect(spy.firstCall.args[1]).to.equal('no content found for tile:article.dk.doesnotexist in s3');
       done();
     });
   });
