@@ -31,4 +31,6 @@ The tile object will have following format:
 
 ## Environment variables needed to run the integration tests locally
 
+Look at the codeship settings to get the values for these variables. https://codeship.com/projects/147193/configure_environment
+
 Look at [.env.example](.env.example)
