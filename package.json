@@ -30,6 +30,7 @@
   "homepage": "https://github.com/numo-labs/lambda-tile-provider#readme",
   "devDependencies": {
     "aws-sdk": "^2.3.3",
+    "chai": "^3.5.0",
     "dpl": "^3.0.1",
     "istanbul": "^0.4.3",
     "mocha": "^2.4.5",

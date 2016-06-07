@@ -1,4 +1,4 @@
-const assert = require('assert');
+const expect = require('chai').expect;
 const sinon = require('sinon');
 const index = require('../index');
 const saveHandler = require('../lib/saveHandler');
@@ -42,7 +42,7 @@ describe('Index (integration)', done => {
 
     index.handler(event, context, function (err, data) {
       if (err) return done(err);
-      assert.equal(data, 'Processed 4 tiles');
+      expect(data).to.equal('Processed 4 tiles');
       done();
     });
   });
@@ -70,7 +70,7 @@ describe('Index (integration)', done => {
 
     index.handler(event, context, function (err, data) {
       if (err) return done(err);
-      assert.equal(data, 'Processed 2 tiles');
+      expect(data).to.equal('Processed 2 tiles');
       done();
     });
   });
@@ -96,7 +96,7 @@ describe('Index (integration)', done => {
 
     index.handler(event, context, function (err, data) {
       if (err) return done(err);
-      assert.equal(data, 'No tiles found to be inserted.');
+      expect(data).to.equal('No tiles found to be inserted.');
       done();
     });
   });
@@ -125,7 +125,7 @@ describe('Index (integration)', done => {
     sandbox.stub(saveHandler, 'save').yields('Oooops');
 
     index.handler(event, context, function (err) {
-      assert.equal(err, 'Oooops');
+      expect(err).to.equal('Oooops');
       done();
     });
   });
