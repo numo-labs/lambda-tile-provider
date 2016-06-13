@@ -15,7 +15,11 @@ const tiles = [
     id: 'tile:destination.dk.2',
     name: 'A random destination',
     url: 'http://www.thomascook.com',
-    sections: []
+    sections: [],
+    location: {
+      lat: '35.212033',
+      lon: '24.894115'
+    }
   }
 ];
 
@@ -51,7 +55,11 @@ describe('saveHandler', done => {
         type: 'destination',
         name: 'A random destination',
         sections: [],
-        url: 'http://www.thomascook.com'
+        url: 'http://www.thomascook.com',
+        location: {
+          lat: '35.212033',
+          lon: '24.894115'
+        }
       }
     }];
 
@@ -74,7 +82,11 @@ describe('saveHandler', done => {
         type: 'destination',
         name: 'A random destination',
         sections: [],
-        url: 'http://www.thomascook.com'
+        url: 'http://www.thomascook.com',
+        location: {
+          lat: '35.212033',
+          lon: '24.894115'
+        }
       }
     }];
 

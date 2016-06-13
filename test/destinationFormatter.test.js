@@ -11,6 +11,10 @@ const item = {
       text: 'Pink fluffy unicorns dancing on rainbows.'
     }
   ],
+  location: {
+    lat: '35.212033',
+    lon: '24.894115'
+  },
   url: 'www.pinkfluffyunicorns.org'
 };
 
@@ -25,16 +29,20 @@ const expectedResult = {
       text: 'Pink fluffy unicorns dancing on rainbows.'
     }
   ],
+  location: {
+    lat: '35.212033',
+    lon: '24.894115'
+  },
   url: 'www.pinkfluffyunicorns.org'
 };
 
 describe('destinationFormatter', () => {
-  it('s3: should return the article format for s3', (done) => {
+  it('s3: should return the destination format for s3', (done) => {
     const result = formatter.s3(item);
     expect(result).to.deep.equal(expectedResult);
     done();
   });
-  it('sns: should return the article format for sns', (done) => {
+  it('sns: should return the destination format for sns', (done) => {
     const result = formatter.sns(item);
     expect(result).to.deep.equal(expectedResult);
     done();

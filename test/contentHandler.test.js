@@ -37,7 +37,7 @@ describe('contentHandler', () => {
       done();
     });
   });
-  it('get: should log an error wen an article was not found but still return the found id content', done => {
+  it('get: should log an error when an article was not found but still return the found id content', done => {
     // I spy, I spy with my little eye...
     const spy = sandbox.spy(awsLambdaHelper.log, 'error');
     const tileIds = ['tile:article.dk.10', 'tile:article.dk.doesnotexist'];
