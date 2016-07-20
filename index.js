@@ -13,7 +13,7 @@ exports.handler = function (event, context, callback) {
     // Fetch the content for the tile ids.
     contentHandler.get(tiles, (_, data) => {
       // Note that contentHandler will never throw an error.
-      aws.log.trace({ message: message, tiles: tiles.length }, 'Handle Save');
+      aws.log.trace({ message: message, tiles: data.length, expected: tiles.length }, 'Handle Save');
       saveHandler.save(message.context.connectionId, message.context.searchId, message.context.userId, data, (err, result) => {
         if (err) {
           aws.log.error(err, 'Unable handle save');
