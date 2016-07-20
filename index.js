@@ -19,7 +19,7 @@ exports.handler = function (event, context, callback) {
           aws.log.error(err, 'Unable handle save');
           return callback(err);
         }
-        aws.log.trace({ results: { expected: result.length, actual: result.length } }, 'Processed tiles');
+        aws.log.trace('Processed tiles');
         return callback(null, `Processed ${data.length} tiles`);
       });
     });
