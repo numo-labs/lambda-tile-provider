@@ -13,12 +13,18 @@ exports.handler = function (event, context, callback) {
     // Fetch the content for the tile ids.
     contentHandler.get(tiles, (_, data) => {
       // Note that contentHandler will never throw an error.
+      aws.log.trace({ message: message, tiles: tiles.length }, 'Handle Save');
       saveHandler.save(message.context.connectionId, message.context.searchId, message.context.userId, data, (err, result) => {
-        if (err) return callback(err);
+        if (err) {
+          aws.log.error(err, 'Unable handle save');
+          return callback(err);
+        }
+        aws.log.trace({ results: { expected: result.length, actual: result.length } }, 'Processed tiles');
         return callback(null, `Processed ${data.length} tiles`);
       });
     });
   } else {
+    aws.log.info({ message: message }, 'No tiles found to be inserted');
     return callback(null, 'No tiles found to be inserted.');
   }
 };
