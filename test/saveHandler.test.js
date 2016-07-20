@@ -46,28 +46,14 @@ describe('saveHandler', done => {
         sections: [],
         url: 'http://www.thomascook.com'
       }
-    }, {
-      id: 'tile:destination.dk.2',
-      type: 'tile',
-      url: '456/tile:destination.dk.2',
-      tile: {
-        id: 'tile:destination.dk.2',
-        type: 'destination',
-        name: 'A random destination',
-        sections: [],
-        url: 'http://www.thomascook.com',
-        location: {
-          lat: '35.212033',
-          lon: '24.894115'
-        }
-      }
-    }];
+    }
+    ];
 
     const pushResultToClientSpy = sandbox.spy(awsLambdaHelper, 'pushResultToClient');
 
     handler.save('123', '456', '789', tiles, function (err, result) {
       if (err) return console.error(err);
-      expect(pushResultToClientSpy.calledOnce).to.be.true;
+      expect(pushResultToClientSpy.called).to.be.true;
       expect(pushResultToClientSpy.firstCall.args[0].items).to.deep.equal(expectedS3FormatItems);
       done();
     });
