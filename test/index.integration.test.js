@@ -100,7 +100,7 @@ describe('Index (integration)', done => {
       done();
     });
   });
-  it('should throw an error when the saveHandler throws an error', done => {
+  it('should not throw an error when the saveHandler throws an error', done => {
     const message = {
       context: {
         userId: 'UniqueFingerprint',
@@ -125,7 +125,7 @@ describe('Index (integration)', done => {
     sandbox.stub(saveHandler, 'save').yields('Oooops');
 
     index.handler(event, context, function (err) {
-      expect(err).to.equal('Oooops');
+      expect(err).not.to.be.ok;
       done();
     });
   });
