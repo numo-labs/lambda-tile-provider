@@ -14,13 +14,13 @@ exports.handler = function (event, context, callback) {
     contentHandler.get(tiles, message.context, (_, data) => {
       // Note that contentHandler will never throw an error.
       aws.log.trace({ message: message, tiles: data.length, expected: tiles.length }, 'Handle Save');
-      sendComplete(context, () => {
+      sendComplete(message.context, () => {
         return callback(null, `Processed ${data.length} tiles`);
       });
     });
   } else {
     aws.log.info({ message: message }, 'No tiles found to be inserted');
-    sendComplete(context, () => {
+    sendComplete(message.context, () => {
       return callback(null, 'No tiles found to be inserted.');
     });
   }
