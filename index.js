@@ -1,6 +1,7 @@
 require('env2')('.env');
 const aws = require('aws-lambda-helper');
 const contentHandler = require('./lib/contentHandler');
+const sendComplete = require('./lib/sendComplete');
 
 exports.handler = function (event, context, callback) {
   aws.init(context, event);
@@ -13,10 +14,14 @@ exports.handler = function (event, context, callback) {
     contentHandler.get(tiles, message.context, (_, data) => {
       // Note that contentHandler will never throw an error.
       aws.log.trace({ message: message, tiles: data.length, expected: tiles.length }, 'Handle Save');
-      return callback(null, `Processed ${data.length} tiles`);
+      sendComplete(context, () => {
+        return callback(null, `Processed ${data.length} tiles`);
+      });
     });
   } else {
     aws.log.info({ message: message }, 'No tiles found to be inserted');
-    return callback(null, 'No tiles found to be inserted.');
+    sendComplete(context, () => {
+      return callback(null, 'No tiles found to be inserted.');
+    });
   }
 };
